@@ -1,3 +1,4 @@
+//hiding keys since I'm utilizing gitHub with dotenv package
 require('dotenv').config();
 
 var keys = require("./keys.js");
@@ -63,12 +64,17 @@ function userSale() {
             },
             function (err, res) {
                 if(err) throw err;
-                if(res[0].stock_quantity > 0) {
-                //updates the stock quantity 
+                if (parseInt(res[0].stock_quantity) - parseInt(answer.quantityReq) < 0) {
+                    console.log("There are not enough units to fufill your Order. Thank you! Come again!")
+                    connection.end();
+                    return;
+                };
+                if (res[0].stock_quantity > 0) {
+            //updates the stock quantity 
                 connection.query("UPDATE products SET ? WHERE ?",
                     [
                         {
-                            stock_quantity: res[0].stock_quantity - answer.quantityReq
+                            stock_quantity: parseInt(res[0].stock_quantity) - parseInt(answer.quantityReq)
                         },
                         {
                             product_name: res[0].product_name
@@ -100,3 +106,6 @@ function userSale() {
             });
         });    
 };
+
+
+
