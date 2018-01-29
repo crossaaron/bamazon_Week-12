@@ -18,6 +18,8 @@
   "homepage": "https://github.com/crossaaron/bamazon_Week-12#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "easy-table": "^1.1.1",
+    "inquirer": "^5.0.1",
     "mysql": "^2.15.0"
   }
 }

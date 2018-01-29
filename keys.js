@@ -7,4 +7,3 @@ exports.sqlLogin = {
    
 };
 
-console.log(exports.sqlLogin);
