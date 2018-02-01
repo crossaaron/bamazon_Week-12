@@ -31,7 +31,8 @@ function openStore () {
             t.cell('Product Name', product.product_name);
             t.cell('Department', product.department_name);
             t.cell('Price', product.price, Table.number(2));
-            t.cell('In Stock', product.stock_quantity)
+            t.cell('In Stock', product.stock_quantity);
+            t.cell('Product Sales', product.product_sales);
             t.newRow()
         });
         console.log(t.toString())
@@ -70,11 +71,12 @@ function userSale() {
                     return;
                 };
                 if (res[0].stock_quantity > 0) {
-            //updates the stock quantity 
+            //updates the stock quantity and tracks the sales 
                 connection.query("UPDATE products SET ? WHERE ?",
                     [
                         {
-                            stock_quantity: parseInt(res[0].stock_quantity) - parseInt(answer.quantityReq)
+                            stock_quantity: parseInt(res[0].stock_quantity) - parseInt(answer.quantityReq),
+                            product_sales: res[0].product_sales + (parseInt(answer.quantityReq) * parseInt(res[0].price))
                         },
                         {
                             product_name: res[0].product_name
