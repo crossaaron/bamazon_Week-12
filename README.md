@@ -10,7 +10,7 @@ A LOOSELY based Amazon-like storefront with the MySQL skills learned this week. 
 
 ### Customer View 
 
-Access by running node bamazonCustomer.js
+Access by running `node bamazonCustomer.js`
 
 1. The app should will prompt users with two messages.
 
@@ -25,13 +25,13 @@ Access by running node bamazonCustomer.js
    * This updates the SQL database to reflect the remaining quantity.
    * Once the update goes through, show the customer the total cost of their purchase.
 
-![alt text](/img/ss1.png)
+![alt text](/img/ss2.png)
 
 
 
 ### Challenge #2: Manager View (Next Level)
 
-* Create a new Node application called `bamazonManager.js`. Running this application will:
+* Access by runging `node manager.js`. Running this application will:
 
   * List a set of menu options:
 
@@ -43,23 +43,23 @@ Access by running node bamazonCustomer.js
     
     * Add New Product
 
-  * If a manager selects `View Products for Sale`, the app should list every available item: the item IDs, names, prices, and quantities.
+  * If a manager selects `View Products for Sale`, the app will list every available item: the item IDs, names, prices, and quantities.
 
-  * If a manager selects `View Low Inventory`, then it should list all items with an inventory count lower than five.
+  * If a manager selects `View Low Inventory`, then it will list all items with an inventory count lower than five.
 
-  * If a manager selects `Add to Inventory`, your app should display a prompt that will let the manager "add more" of any item currently in the store.
+  * If a manager selects `Add to Inventory`, the app will display a prompt that will let the manager "add more" of any item currently in the store.
 
-  * If a manager selects `Add New Product`, it should allow the manager to add a completely new product to the store.
+  * If a manager selects `Add New Product`, it will allow the manager to add a completely new product to the store.
 
+![alt text](/img/ss4.png)
+![alt text](/img/ss5.png)
+![alt text](/img/ss6.png)
 - - -
 
-* If you finished Challenge #2 and put in all the hours you were willing to spend on this activity, then rest easy! Otherwise continue to the next and final challenge.
-
-- - -
 
 ### Challenge #3: Supervisor View (Final Level)
 
-1. Create a new MySQL table called `departments`. Your table should include the following columns:
+Access by running  `node supervisor`. Running this application will eventually include the following columns:
 
    * department_id
 
@@ -87,13 +87,3 @@ Access by running node bamazonCustomer.js
 | 02            | Clothing        | 60000           | 100000        | 40000        |
 
 6. The `total_profit` column should be calculated on the fly using the difference between `over_head_costs` and `product_sales`. `total_profit` should not be stored in any database. You should use a custom alias.
-
-7. If you can't get the table to display properly after a few hours, then feel free to go back and just add `total_profit` to the `departments` table.
-
-   * Hint: You may need to look into aliases in MySQL.
-
-   * Hint: You may need to look into GROUP BYs.
-
-   * Hint: You may need to look into JOINS.
-
-   * **HINT**: There may be an NPM package that can log the table to the console. What's is it? Good question :)
